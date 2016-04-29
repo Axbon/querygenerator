@@ -5,7 +5,8 @@ const path = require('path');
 
 /**
  * Generate a query-function that returns a Promise
- * @param  {object} db       dbAdapter
+ *
+ * @param  {Object} db       dbAdapter
  * @param  {String} queryStr sql query
  * @return {Promise}
  */
@@ -20,6 +21,16 @@ function getQueryFN(db, queryStr){
   };
 }
 
+/**
+ * Takes two arguments. One compatible db-adapter/lib such as
+ * https://github.com/sehrope/node-pg-db.
+ * As long as it has a "query" method that takes a "query string" as
+ * argument, it will work.
+ *
+ * @param  {Object} db        dbAdapter
+ * @param  {String} queryPath glob pattern/path containing .sql files
+ * @return {Object}           contains query functions
+ */
 module.exports = (db, queryPath) => {
   let files = glob.sync(queryPath);
   let queries = files.map(filepath => {
