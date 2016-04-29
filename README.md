@@ -13,19 +13,19 @@ like async/await.
 The querygenerator function takes two arguments. DBadapter containing a "query" method/api,
 and a glob pattern.
 
-##Some compatible dbadapters
-https://github.com/sehrope/node-pg-db
+###Some compatible dbadapters
+https://github.com/sehrope/node-pg-db<br>
 https://github.com/felixge/node-mysql
 
 
 It is necessary to use babel to transpile your code for this to work, since I use
 Promises via babel polyfill, arrow functions, etc.
 
-##Example
+###Example
 
 ```js
 let db = require('pg-db');
-let querygen = require('./querygenerator.js');
+let querygen = require('querygenerator');
 let queries = querygen(db, __dirname + '/**/*.sql');
 ```
 
