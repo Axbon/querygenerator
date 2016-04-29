@@ -19,7 +19,8 @@ https://github.com/felixge/node-mysql
 
 
 It is necessary to use babel to transpile your code for this to work, since I use
-Promises via babel polyfill, arrow functions, etc.
+Promises via babel polyfill, arrow functions, etc. The idea is that your project is
+already in a babel "context" when using this module.
 
 ###Example
 
